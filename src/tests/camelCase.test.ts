@@ -5,26 +5,47 @@ import { convertToCamelCase } from '../core/camelCase';
 // 'Foo Bar' -> 'FooBar' --> DONE
 // 'Foo_Bar-Foo' -> 'FooBarFoo'
 // 'foo' -> 'Foo' --> DONE
-// 'Foo__bar foo-bar' -> 'FooBarFooBar'
+// 'Foo__bar foo-bar' -> 'FooBarFooBar' --> DONE
+// '   _fooBar foo' --> 'FooBarFoo'  --> DONE
 
 describe('Camel case', () => {
   it('empty strings are allowed', () => {
-    expect(convertToCamelCase('')).toBe('');
+    const expected = '';
+    const currentValue = '';
+
+    expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 
   it('capitalize single word returns same word without changes', () => {
-    expect(convertToCamelCase('Foo')).toBe('Foo');
+    const expected = 'Foo';
+    const currentValue = 'Foo';
+
+    expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 
   it('two capitalized word separated by empty space return FooBar', () => {
-    expect(convertToCamelCase('Foo Bar')).toBe('FooBar');
+    const expected = 'FooBar';
+    const currentValue = 'Foo Bar';
+
+    expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 
   it('_ and - are removed from separated words', () => {
-    expect(convertToCamelCase('Foo_Bar-Foo')).toBe('FooBarFoo');
+    const expected = 'FooBarFoo';
+    const currentValue = 'Foo_Bar-Foo';
+
+    expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 
   it('sequence with empty spaces and symbols returns capitalized words', () => {
-    expect(convertToCamelCase('Foo__bar foo-bar')).toBe('FooBarFooBar');
+    let expected = 'FooBarFooBar';
+    let currentValue = 'Foo__bar foo-bar';
+
+    expect(convertToCamelCase(currentValue)).toBe(expected);
+
+    expected = 'FooBarFoo';
+    currentValue = '   _fooBar foo';
+    
+    expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 });
