@@ -1,7 +1,7 @@
 import { convertToCamelCase } from '../core/camelCase';
 
 // "" -> "" --> DONE
-// 'Foo' -> 'Foo'
+// 'Foo' -> 'Foo' --> DONE
 // 'Foo Bar' -> 'FooBar'
 // 'Foo_Bar-Foo' -> 'FooBarFoo'
 // 'foo' -> 'Foo'
@@ -14,5 +14,9 @@ describe('Camel case', () => {
 
   it('capitalize single word returns same word without changes', () => {
     expect(convertToCamelCase('Foo')).toBe('Foo');
+  });
+
+  it('two capitalized word separated by empty space return FooBar', () => {
+    expect(convertToCamelCase('Foo Bar')).toBe('FooBar');
   });
 });
