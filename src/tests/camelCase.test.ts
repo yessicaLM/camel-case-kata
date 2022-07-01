@@ -1,3 +1,5 @@
+import { convertToCamelCase } from '../core/camelCase';
+
 // "" -> ""
 // 'Foo' -> 'Foo'
 // 'Foo Bar' -> 'FooBar'
