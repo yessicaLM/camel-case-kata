@@ -24,12 +24,4 @@ To run all test in watch mode, run next command:
 npm run test:watch
 `
 
-## Branches
-There are two branches in this project:
-- camelCase-firstTry
-- camelCase-second-attempt
-  
-The results un master are the results of *camelCase-second-attempt* branch.
-
-
 
