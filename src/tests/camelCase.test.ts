@@ -1,13 +1,5 @@
 import { convertToCamelCase } from '../core/camelCase';
 
-// "" -> "" --> DONE
-// 'Foo' -> 'Foo' --> DONE
-// 'Foo Bar' -> 'FooBar' --> DONE
-// 'Foo_Bar-Foo' -> 'FooBarFoo'
-// 'foo' -> 'Foo' --> DONE
-// 'Foo__bar foo-bar' -> 'FooBarFooBar' --> DONE
-// '   _fooBar foo' --> 'FooBarFoo'  --> DONE
-
 describe('Camel case', () => {
   it('empty strings are allowed', () => {
     const expected = '';
@@ -45,7 +37,7 @@ describe('Camel case', () => {
 
     expected = 'FooBarFoo';
     currentValue = '   _fooBar foo';
-    
+
     expect(convertToCamelCase(currentValue)).toBe(expected);
   });
 });
