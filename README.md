@@ -17,7 +17,13 @@ returns in a single word the combination of those capitalized words.
 - **'Foo__bar foo-bar'** -> 'FooBarFooBar'
 - **'   _fooBar foo'** --> 'FooBarFoo'
 
-## Run test
+## Run project
+Install project dependencies:
+
+`
+npm install
+`
+
 To run all test in watch mode, run next command:
 
 `
